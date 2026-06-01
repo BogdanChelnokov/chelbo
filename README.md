@@ -95,10 +95,6 @@
 | **GitHub Actions** | - | CI/CD автоматизация |
 | **systemd** | - | Управление процессами |
 
----
-
-## 📦 Установка
-
 ```bash
 git clone https://github.com/yourusername/chelbo.git
 cd chelbo
