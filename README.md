@@ -18,22 +18,6 @@
 
 ---
 
-## 📋 Table of Contents
-
-- [Features](#-features)
-- [Tech Stack](#-tech-stack)
-- [Architecture](#-architecture)
-- [Installation](#-installation)
-- [Configuration](#-configuration)
-- [Running the Project](#-running-the-project)
-- [API Documentation](#-api-documentation)
-- [Deployment](#-deployment)
-- [Roadmap](#-roadmap)
-- [License](#-license)
-- [Author](#-author)
-
----
-
 ## 🚀 Features
 
 | Feature | Description | Status |
@@ -79,15 +63,14 @@
 | **Vite** | 5.0+ | Build tool |
 | **Axios** | 1.6+ | HTTP client |
 
-### DevOps
-
-| Technology | Version | Purpose |
-|------------|---------|---------|
-| **Docker** | 24+ | Containerization |
-| **Nginx** | 1.24+ | Reverse proxy |
-| **Certbot** | - | SSL certificates |
-| **GitHub Actions** | - | CI/CD |
-
 ---
 
-## 🏗 Architecture
+## 📦 Installation
+
+### Quick Start with Docker
+
+```bash
+git clone https://github.com/yourusername/chelbo.git
+cd chelbo
+cp .env.example .env
+docker-compose up -d
