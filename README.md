@@ -1,96 +1,99 @@
-# Chelbo — Cross-Platform Messenger / Кроссплатформенный мессенджер
+# Chelbo — Кроссплатформенный мессенджер
 
 <p align="center">
   <img src="screenshots/logo.png" alt="Chelbo Logo" width="120">
 </p>
 
 <p align="center">
-  <strong>Russian alternative to Telegram with Web-first approach</strong><br>
-  <strong>Российский аналог Telegram с Web-first подходом</strong>
+  <strong>Российский аналог Telegram с Web-first подходом</strong><br>
+  Работает в браузере и как PWA без установки приложения
 </p>
 
 <p align="center">
-  <a href="#english">English</a> • 
-  <a href="#russian">Русский</a>
+  <a href="#особенности">Особенности</a> •
+  <a href="#технологии">Технологии</a> •
+  <a href="#установка">Установка</a> •
+  <a href="#запуск">Запуск</a> •
+  <a href="#api">API</a> •
+  <a href="#деплой">Деплой</a>
 </p>
 
 ---
 
-<a name="english"></a>
-# 🇬🇧 English
+## 📋 О проекте
 
-**Chelbo** is a modern Russian cross-platform messenger with an open architecture. It works directly in the browser and as a PWA without requiring installation. The project was developed as a graduation thesis at TOR Academy.
+**Chelbo** — это современный российский кроссплатформенный мессенджер с открытой архитектурой. Он работает прямо в браузере и как PWA без необходимости установки приложения. Проект разработан в качестве дипломной работы в Академии ТОР.
 
-> **Live Demo:** [https://chelbo.ru](https://chelbo.ru)
-
----
-
-## ✨ Features
-
-### Core Features
-
-| Feature | Description |
-|---------|-------------|
-| 💬 **Real-time messaging** | Instant message delivery via WebSocket |
-| 👥 **Private & Group chats** | 1-on-1 conversations and group discussions |
-| 📎 **File sharing** | Images (up to 10 MB) and documents (up to 50 MB) |
-| 🎙️ **Voice messages** | Record and send voice messages directly in chat |
-| 📹 **Video messages** | Record and share short videos |
-| ↩️ **Message replies** | Quote and reply to any message (Telegram-style) |
-| 📤 **Message forwarding** | Forward messages to other chats |
-| ✓ **Read receipts** | See when messages are delivered and read |
-| ⌨️ **Typing indicators** | See when someone is typing |
-| 🔴 **Unread counter** | Badge showing number of unread messages |
-
-### Advanced Features
-
-| Feature | Description |
-|---------|-------------|
-| 📱 **PWA support** | Install on mobile without App Store |
-| 💻 **Responsive design** | Works on desktop, tablet, and mobile |
-| 🌙 **Dark theme** | Dark color scheme with red accent |
-| 🤖 **AI assistant** | Built-in chatbot to answer questions |
-| 🔍 **Message search** | Full-text search through messages |
-| 🟢 **Online status** | See when users are online |
+> **Демо:** [https://chelbo.ru](https://chelbo.ru)
 
 ---
 
-## 🛠 Technology Stack
+## ✨ Особенности
 
-### Backend
+### Основные функции
 
-| Technology | Version | Purpose |
-|------------|---------|---------|
-| **Go** | 1.22+ | Primary programming language – high performance, lightweight goroutines |
-| **Gorilla WebSocket** | 1.5.1 | Real-time bidirectional communication |
-| **MySQL** | 8.0+ | Main database – ACID, JSON support, full-text search |
-| **Redis** | 7.2+ | Caching, session storage, Pub/Sub for horizontal scaling |
-| **JWT** | 5.2+ | Stateless authentication |
-| **bcrypt** | - | Secure password hashing |
-| **sqlx** | 1.3.5 | Database ORM extension |
+| Функция | Описание |
+|---------|----------|
+| 💬 **Обмен сообщениями** | Мгновенная доставка через WebSocket |
+| 👥 **Личные и групповые чаты** | Диалоги 1-на-1 и групповые обсуждения |
+| 📎 **Обмен файлами** | Изображения (до 10 MB) и документы (до 50 MB) |
+| 🎙️ **Голосовые сообщения** | Запись и отправка голоса в чате |
+| 📹 **Видеосообщения** | Запись и отправка коротких видео |
+| ↩️ **Ответы на сообщения** | Цитирование и ответ (как в Telegram) |
+| 📤 **Пересылка сообщений** | Пересылка в другие чаты |
+| ✓ **Статусы прочтения** | Доставлено / прочитано |
+| ⌨️ **Индикатор печати** | Отображение когда собеседник печатает |
+| 🔴 **Счётчик непрочитанных** | Бейдж с количеством новых сообщений |
 
-### Frontend
+### Расширенные возможности
 
-| Technology | Version | Purpose |
-|------------|---------|---------|
-| **Vue 3** | 3.4+ | Progressive frontend framework with Composition API |
-| **TypeScript** | 5.3+ | Type safety and better refactoring experience |
-| **Pinia** | 2.1+ | Official Vue 3 state management |
-| **Vite** | 5.0+ | Build tool with instant HMR |
-| **Axios** | 1.6+ | HTTP client with interceptors |
-| **Day.js** | 1.11+ | Lightweight date formatting |
-
-### DevOps & Infrastructure
-
-| Technology | Version | Purpose |
-|------------|---------|---------|
-| **Nginx** | 1.24+ | Reverse proxy, static file serving, WebSocket upgrade |
-| **Certbot** | - | SSL/TLS certificate management |
-| **Prometheus** | 2.50+ | Metrics collection |
-| **Grafana** | 10.0+ | Metrics visualization |
-| **GitHub Actions** | - | CI/CD automation |
-| **systemd** | - | Process management |
+| Функция | Описание |
+|---------|----------|
+| 📱 **PWA поддержка** | Установка на телефон без App Store |
+| 💻 **Адаптивный дизайн** | Работает на ПК, планшетах и телефонах |
+| 🌙 **Тёмная тема** | Тёмная цветовая схема с красным акцентом |
+| 🤖 **AI ассистент** | Встроенный чат-бот для ответов на вопросы |
+| 🔍 **Поиск сообщений** | Полнотекстовый поиск по сообщениям |
+| 🟢 **Статус онлайн** | Отображение когда пользователь в сети |
 
 ---
 
-## 🏗 Architecture Overview
+## 🛠 Технологии
+
+### Бэкенд
+
+| Технология | Версия | Назначение |
+|------------|--------|------------|
+| **Go** | 1.22+ | Основной язык – высокая производительность, лёгкие горутины |
+| **Gorilla WebSocket** | 1.5.1 | Двунаправленная связь в реальном времени |
+| **MySQL** | 8.0+ | Основная БД – ACID, JSON, полнотекстовый поиск |
+| **Redis** | 7.2+ | Кэширование, сессии, Pub/Sub для горизонтального масштабирования |
+| **JWT** | 5.2+ | Stateless аутентификация |
+| **bcrypt** | - | Хэширование паролей |
+| **sqlx** | 1.3.5 | Расширение для работы с БД |
+
+### Фронтенд
+
+| Технология | Версия | Назначение |
+|------------|--------|------------|
+| **Vue 3** | 3.4+ | Прогрессивный фреймворк с Composition API |
+| **TypeScript** | 5.3+ | Типизация и удобство рефакторинга |
+| **Pinia** | 2.1+ | Официальное хранилище для Vue 3 |
+| **Vite** | 5.0+ | Сборщик с мгновенной HMR |
+| **Axios** | 1.6+ | HTTP клиент с перехватчиками |
+| **Day.js** | 1.11+ | Лёгкая замена moment.js |
+
+### DevOps и инфраструктура
+
+| Технология | Версия | Назначение |
+|------------|--------|------------|
+| **Nginx** | 1.24+ | Reverse proxy, статика, WebSocket upgrade |
+| **Certbot** | - | Управление SSL сертификатами |
+| **Prometheus** | 2.50+ | Сбор метрик |
+| **Grafana** | 10.0+ | Визуализация метрик |
+| **GitHub Actions** | - | CI/CD автоматизация |
+| **systemd** | - | Управление процессами |
+
+---
+
+## 🏗 Архитектура
