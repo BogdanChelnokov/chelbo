@@ -1,10 +1,6 @@
 # Chelbo — Кроссплатформенный мессенджер
 
 <p align="center">
-  <img src="screenshots/logo.png" alt="Chelbo Logo" width="120">
-</p>
-
-<p align="center">
   <strong>Российский аналог Telegram с Web-first подходом</strong><br>
   Работает в браузере и как PWA без установки приложения
 </p>
