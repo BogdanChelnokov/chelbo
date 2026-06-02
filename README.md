@@ -82,32 +82,6 @@
 | **Docker** | 24+ | Контейнеризация |
 | **GitHub Actions** | - | CI/CD автоматизация |
 
----
-
-## 📸 Скриншоты
-
-### Десктопная версия
-
-| Страница входа | Список чатов |
-|:--------------:|:------------:|
-| <img src="screenshots/login-desktop.png" alt="Login" width="400"> | <img src="screenshots/chats-desktop.png" alt="Chats" width="400"> |
-
-| Окно чата | Тёмная тема |
-|:---------:|:-----------:|
-| <img src="screenshots/chat-desktop.png" alt="Chat" width="400"> | <img src="screenshots/dark-desktop.png" alt="Dark" width="400"> |
-
-| Голосовое сообщение | Контекстное меню |
-|:-------------------:|:----------------:|
-| <img src="screenshots/voice-desktop.png" alt="Voice" width="400"> | <img src="screenshots/menu-desktop.png" alt="Menu" width="400"> |
-
-### Мобильная версия
-
-| Список чатов | Окно чата | Голосовое сообщение |
-|:------------:|:---------:|:-------------------:|
-| <img src="screenshots/mobile-list.png" alt="Mobile List" width="200"> | <img src="screenshots/mobile-chat.png" alt="Mobile Chat" width="200"> | <img src="screenshots/mobile-voice.png" alt="Mobile Voice" width="200"> |
-
----
-
 ## 📦 Инструкция по запуску
 
 ### Требования
@@ -188,7 +162,4 @@ npm run dev
 # Email: test@test.com
 # Пароль: Test123!@#```
 
-Челноков Богдан – Дипломная работа, Академия ТОР
-
-📧 Email: bodychelnok@gmail.com
-💬 Telegram: @chelni1
+### Челноков Богдан – Дипломная работа, Академия ТОР
