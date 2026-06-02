@@ -1,6 +1,10 @@
 # Chelbo — Кроссплатформенный мессенджер
 
 <p align="center">
+  <img src="screenshots/logo.png" alt="Chelbo Logo" width="120">
+</p>
+
+<p align="center">
   <strong>Российский аналог Telegram с Web-first подходом</strong><br>
   Работает в браузере и как PWA без установки приложения
 </p>
@@ -8,6 +12,10 @@
 <p align="center">
   <a href="#особенности">Особенности</a> •
   <a href="#технологии">Технологии</a> •
+  <a href="#скриншоты">Скриншоты</a> •
+  <a href="#инструкция-по-запуску">Инструкция по запуску</a> •
+  <a href="#api">API</a> •
+  <a href="#деплой">Деплой</a>
 </p>
 
 ---
@@ -63,7 +71,6 @@
 | **Redis** | 7.2+ | Кэширование, сессии, Pub/Sub для горизонтального масштабирования |
 | **JWT** | 5.2+ | Stateless аутентификация |
 | **bcrypt** | - | Хэширование паролей |
-| **sqlx** | 1.3.5 | Расширение для работы с БД |
 
 ### Фронтенд
 
@@ -74,19 +81,124 @@
 | **Pinia** | 2.1+ | Официальное хранилище для Vue 3 |
 | **Vite** | 5.0+ | Сборщик с мгновенной HMR |
 | **Axios** | 1.6+ | HTTP клиент с перехватчиками |
-| **Day.js** | 1.11+ | Лёгкая замена moment.js |
 
-### DevOps и инфраструктура
+### DevOps
 
 | Технология | Версия | Назначение |
 |------------|--------|------------|
 | **Nginx** | 1.24+ | Reverse proxy, статика, WebSocket upgrade |
 | **Certbot** | - | Управление SSL сертификатами |
-| **Prometheus** | 2.50+ | Сбор метрик |
-| **Grafana** | 10.0+ | Визуализация метрик |
+| **Docker** | 24+ | Контейнеризация |
 | **GitHub Actions** | - | CI/CD автоматизация |
-| **systemd** | - | Управление процессами |
+
+---
+
+## 📸 Скриншоты
+
+### Десктопная версия
+
+| Страница входа | Список чатов |
+|:--------------:|:------------:|
+| <img src="screenshots/login-desktop.png" alt="Login" width="400"> | <img src="screenshots/chats-desktop.png" alt="Chats" width="400"> |
+
+| Окно чата | Тёмная тема |
+|:---------:|:-----------:|
+| <img src="screenshots/chat-desktop.png" alt="Chat" width="400"> | <img src="screenshots/dark-desktop.png" alt="Dark" width="400"> |
+
+| Голосовое сообщение | Контекстное меню |
+|:-------------------:|:----------------:|
+| <img src="screenshots/voice-desktop.png" alt="Voice" width="400"> | <img src="screenshots/menu-desktop.png" alt="Menu" width="400"> |
+
+### Мобильная версия
+
+| Список чатов | Окно чата | Голосовое сообщение |
+|:------------:|:---------:|:-------------------:|
+| <img src="screenshots/mobile-list.png" alt="Mobile List" width="200"> | <img src="screenshots/mobile-chat.png" alt="Mobile Chat" width="200"> | <img src="screenshots/mobile-voice.png" alt="Mobile Voice" width="200"> |
+
+---
+
+## 📦 Инструкция по запуску
+
+### Требования
+
+| Компонент | Версия |
+|-----------|--------|
+| **Go** | 1.22+ |
+| **Node.js** | 20+ |
+| **MySQL** | 8.0+ |
+| **Git** | любая |
+
+### Пошаговая установка
 
 ```bash
+# 1. Скачать проект
 git clone https://github.com/yourusername/chelbo.git
 cd chelbo
+
+# 2. Создать базу данных MySQL
+mysql -u root -p
+CREATE DATABASE chelbo CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+EXIT;
+
+# 3. Настроить бэкенд
+cd backend
+cp .env.example .env
+
+Отредактируйте .env (укажите пароль от MySQL):
+env
+SERVER_PORT=8080
+SERVER_HOST=0.0.0.0
+ENVIRONMENT=development
+
+DB_HOST=localhost
+DB_PORT=3306
+DB_USER=root
+DB_PASSWORD=          # Если пароль есть — укажите, если нет — оставьте пустым
+DB_NAME=chelbo
+
+JWT_SECRET=mySuperSecretKey1234567890
+JWT_EXPIRY_HOURS=24
+
+STORAGE_TYPE=local
+STORAGE_PATH=./uploads
+MAX_FILE_SIZE_MB=50
+
+# 4. Установить зависимости и применить миграции
+go mod download
+mysql -u root -p chelbo < internal/database/migrations/001_init_schema.sql
+
+# 5. Настроить фронтенд
+cd ../frontend
+npm install
+
+# 6. Запустить проект (нужно два терминала)
+
+# Терминал 1 — Бэкенд:
+cd backend
+go run cmd/server/main.go
+# Ожидаемый вывод: ✅ Database connected successfully
+#                  🌐 Server listening on localhost:8080
+
+# Терминал 2 — Фронтенд:
+cd frontend
+npm run dev
+# Ожидаемый вывод: ➜ Local: http://localhost:3000/
+
+# 7. Открыть в браузере
+# http://localhost:3000
+
+# 8. Зарегистрироваться
+# Нажмите "Зарегистрироваться"
+# Имя: Тест
+# Email: test@test.com
+# Пароль: Test123!@#
+
+# 9. Войти и пользоваться
+# Email: test@test.com
+# Пароль: Test123!@#
+
+
+Челноков Богдан – Дипломная работа, Академия ТОР
+
+📧 Email: bodychelnok@gmail.com
+💬 Telegram: @chelni1
